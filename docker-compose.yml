@@ -1,0 +1,34 @@
+version: '3'
+services:
+  api-newsletter:
+    container_name: api-newsletter
+    restart: always
+    build: ./api-newsletter
+    ports: 
+      - "8081:8081"
+  api-notifications:
+    container_name: api-notifications
+    restart: always
+    build: ./api-notifications
+    ports: 
+      - "8082:8082"
+  api-subscriptions:
+    container_name: api-subscriptions
+    restart: always
+    build: ./api-subscriptions
+    ports: 
+      - "8083:8083"
+    links:
+      - mongo
+  mongo:
+    container_name: mongoDB
+    restart: always
+    image: mongo
+    ports: 
+      - "27017:27017"
+    volumes:
+      - mongo:/data/db
+
+
+volumes:
+  mongo: {}
