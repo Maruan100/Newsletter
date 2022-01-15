@@ -5,7 +5,7 @@
   "main": "src/app.js",
   "type": "module",
   "scripts": {
-    "test": "NODE_ENV=test mocha ./src/test/api.spec.js --experimental-json-modules --exit",
+    "test": "NODE_ENV=test mocha test/api.spec.js --experimental-json-modules --exit",
     "start": "node --experimental-modules --experimental-specifier-resolution=node src/app.js",
     "dev": "nodemon --experimental-modules --experimental-specifier-resolution=node src/app.js"
   },
