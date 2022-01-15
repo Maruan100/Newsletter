@@ -2,15 +2,16 @@ import request from "supertest";
 import app from "../src/app.js";
 import HttpStatus from "http-status-codes";
 
+const data = {
+  email: "testmai1@testmail.com",
+  dateOfBirth: "1999-05-11",
+  campaignId: "507f1f77bcf86cd799439011",
+  gender: "male",
+  firstName: "Test",
+};
+
 describe("POST /newsletter", () => {
   it("should return success message", (done) => {
-    const data = {
-      email: "mason07b_j112l@vixej.com",
-      dateOfBirth: "1999-05-11",
-      campaignId: "507f1f77bcf86cd799439011",
-      gender: "male",
-      firstName: "Test",
-    };
     request(app)
       .post("/newsletter")
       .send(data)
@@ -28,12 +29,9 @@ describe("POST /newsletter", () => {
   });
 
   it("should return some required filds are empty message", (done) => {
-    const data = {
-      // empty body
-    };
     request(app)
       .post("/newsletter")
-      .send(data)
+      .send({})
       .expect(HttpStatus.BAD_REQUEST)
       .expect("Content-Type", /json/)
       .expect({
