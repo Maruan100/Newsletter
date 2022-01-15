@@ -1,6 +1,6 @@
 import { Router } from "express";
-import NotificationsController from "../controllers/notifications.controller";
-import Auth from "../controllers/auth.controller"
+import NotificationsController from "../controllers/notifications.controller.js";
+import Auth from "../controllers/auth.controller.js"
 
  const routes = Router()
    .post("/", Auth.ensureAuth,  NotificationsController.sendNotification)

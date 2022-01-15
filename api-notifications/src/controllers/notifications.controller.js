@@ -5,7 +5,9 @@ async function sendNotification(req, res) {
   const { email, firstName, gender, dateOfBirth, campaignId } = req.body;
 
   if (!email) {
-    res.status(HttpStatus.BAD_REQUEST).json(`Email fild is empty`);
+    res.status(HttpStatus.BAD_REQUEST).json({
+      message: "Email fild is empty",
+    });
   }
 
   const data = {
