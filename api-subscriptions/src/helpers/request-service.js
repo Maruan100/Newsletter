@@ -1,8 +1,12 @@
 import axios from "axios";
 
+const baseURL =
+  process.env.NODE_ENV === "test" || process.env.NODE_ENV === "local"
+    ? "http://localhost:8082/"
+    : "http://172.17.0.1:8082/";
+
 const request = axios.create({
-  // Change to http://localhost:8082/ if you don't run the serves with docker-compose
-  baseURL: "http://172.17.0.1:8082/",
+  baseURL: baseURL,
   withCredentials: false,
   headers: {
     Accept: "application/json",

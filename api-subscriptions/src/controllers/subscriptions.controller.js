@@ -1,6 +1,6 @@
 import HttpStatus from "http-status-codes";
-import Subscriptions from "../models/subscription";
-import RequestService from "../helpers/request-service";
+import Subscriptions from "../models/subscription.js";
+import RequestService from "../helpers/request-service.js";
 
 async function fetchSubscriptions(req, res) {
   const subscriptions = await Subscriptions.find();
@@ -48,7 +48,7 @@ async function createSubscription(req, res) {
       message:
         "Now you are subscribed to the newsletter, you will receive a welcome email soon",
     });
-  } catch {
+  } catch (error) {
     res
       .status(HttpStatus.BAD_REQUEST)
       .json({ message: `Subscription could not be saved: ${error}` });

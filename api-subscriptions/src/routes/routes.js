@@ -1,6 +1,6 @@
 import { Router } from "express";
-import SubscriptionsController from "../controllers/subscriptions.controller";
-import Auth from "../controllers/auth.controller";
+import SubscriptionsController from "../controllers/subscriptions.controller.js";
+import Auth from "../controllers/auth.controller.js";
 
 const routes = Router()
   /**

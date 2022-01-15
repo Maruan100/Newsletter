@@ -21,7 +21,6 @@ describe("POST /newsletter", () => {
         message:
           "Now you are subscribed to the newsletter, you will receive a welcome email soon",
       })
-      .expect(200)
       .end((err) => {
         if (err) return done(err);
         done();
@@ -37,7 +36,6 @@ describe("POST /newsletter", () => {
       .expect({
         message: "Email, date of birth or campaignId is empty",
       })
-      .expect(400)
       .end((err) => {
         if (err) return done(err);
         done();
