@@ -2,6 +2,14 @@ import HttpStatus from "http-status-codes";
 import RequestService from "../helpers/request-service.js";
 
 async function subscribe(req, res) {
+  const { email, dateOfBirth, campaignId } = req.body;
+
+  if (!email || !dateOfBirth || !campaignId) {
+    return res
+      .status(HttpStatus.BAD_REQUEST)
+      .json({ message: `Email, date of birth or campaignId is empty` });
+  }
+
   try {
     const { data } = await RequestService.request.post(
       "subscriptions/",

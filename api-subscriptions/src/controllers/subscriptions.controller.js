@@ -12,7 +12,7 @@ async function fetchSubscriptions(req, res) {
 async function readSubscription(req, res) {
   const subscription = await Subscriptions.findById(req.params.id);
   if (!subscription) {
-    res
+    return res
       .status(HttpStatus.NOT_FOUND)
       .json({ message: `Subscription not found` });
   }
@@ -25,7 +25,7 @@ async function createSubscription(req, res) {
   const { email, firstName, gender, dateOfBirth, campaignId } = req.body;
 
   if (!email || !dateOfBirth || !campaignId) {
-    res
+  return res
       .status(HttpStatus.BAD_REQUEST)
       .json({ message: `Email, date of birth or campaignId is empty` });
   }
@@ -44,21 +44,19 @@ async function createSubscription(req, res) {
       subscription
     );
     await subscription.save();
-    res.status(HttpStatus.OK).json({
+   return res.status(HttpStatus.OK).json({
       message:
         "Now you are subscribed to the newsletter, you will receive a welcome email soon",
     });
   } catch (error) {
-    res
-      .status(HttpStatus.BAD_REQUEST)
-      .json({ message: `Subscription could not be saved: ${error}` });
+    console.error(error);
   }
 }
 
 async function deleteSubscription(req, res) {
   const subscription = await Subscriptions.findById(req.params.id);
   if (!subscription) {
-    res
+    return res
       .status(HttpStatus.NOT_FOUND)
       .json({ message: `Subscription not found` });
   }
