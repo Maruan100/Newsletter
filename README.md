@@ -5,6 +5,7 @@ microservices to manage a newsletter system
 
 ## Basic Usage
 
+###### Node version used v14.18.2
 *Local usage: (run in each api directory)*
 ```
 npm install
@@ -77,6 +78,7 @@ X-Auth-Token:  eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6IndjcmVtaW5vX2U5
 - [Moment](https://www.npmjs.com/package/moment) *To set expiration date of a token (in this case is set to 30 days)*
 - [Swagger-jsdoc](https://www.npmjs.com/package/swagger-jsdoc) && [Swagger-ui-express](https://www.npmjs.com/package/swagger-ui-express) *Used to create a swagger documentation inside api-subscription*
 - [Mocha](https://www.npmjs.com/package/mocha) && [Supertest](https://www.npmjs.com/package/supertest) *Used for testing*
+- [Docker](https://hub.docker.com/_/node) && [Docker Compose](https://docs.docker.com/compose/install/) *Docker to containerize the apis (I use a node:14-alpine3.12 because is a very slim image) and Docker Compose to link the the containers*
 
 
 
