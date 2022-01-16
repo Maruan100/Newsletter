@@ -1,6 +1,6 @@
 # Newsletter
 
-3 microservices to create a newsletter system
+microservices to manage a newsletter system
 
 
 ## Basic Usage
