@@ -31,8 +31,8 @@ npm test
 
 
 ## What does each microservice do?
-- ### api-newsletter (public): 
->It is the public api to which the client connects:
+- ### api-newsletter (public) :8081 
+> It is the public api to which the client connects:
 
 
 **POST:** [newsletter/](#) *To subscribe to the newsletter, body example:* 
@@ -49,7 +49,7 @@ npm test
 **POST:** [newsletter/unsubscribe/:{id}](#) *Unsubscribe to the newsletter, subscriptionId required in the params, example: [newsletter/unsubscribe/61e03ad3e3249e396192ded0](#)*
 
 
-- ### api-subscriptions (secured): 
+- ### api-subscriptions (secured) :8083 
 >Manages subscription information and connects to the database:
 
 It has a documentation made with swagger, to see it, run the server locally and go to the route: [http://localhost:8083/docs/](http://localhost:8083/docs/) 
@@ -59,7 +59,7 @@ X-Auth-Token:  eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6IndjcmVtaW5vX2U5
 ```
 
 
-- ### api-notifications (secured): 
+- ### api-notifications (secured) :8082
 >Manages sending email, **currently sending email works and a welcome email is sent using mailchimp that takes a few minutes**:
 
 **POST:** [notifications/](#) It makes a call to mailchimp to add the email to the list of subscribers and sends a welcome email, body example: Expect same body that we send in ***api-newsletter*** but send by ***api-subscription***
